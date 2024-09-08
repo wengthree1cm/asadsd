@@ -1,0 +1,75 @@
+---
+title: "beginning"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+a <- 1
+b <- -1
+c <- -2
+
+discriminant <- b^2 - 4*a*c
+if (discriminant >= 0) {
+  solution1 <- (-b + sqrt(discriminant)) / (2*a)
+  solution2 <- (-b - sqrt(discriminant)) / (2*a)
+  cat("Real solutions are:", solution1, "and", solution2, "\n")
+} else {
+  cat("No real solutions.\n")
+}
+```
+
+```{r}
+x <- seq(-5, 5, length = 100)
+
+# Define the function f(x)
+f_x <- a*x^2 + b*x + c
+
+# Plot the graph
+plot(x, f_x, type = "l", col = "blue", lwd = 2, 
+     xlab = "x", ylab = "f(x)",
+     main = "Graph of f(x) = ax^2 + bx + c")
+grid()
+```
+
+```{r}
+coefs <- read.table(file.path("C:/Users/Liuch/OneDrive/文档/pset-01-rmarkdown/code/data/coefs.txt"))
+
+# Assign variables a, b, and c from the file
+a <- coefs[1, 2]
+b <- coefs[2, 2]
+c <- coefs[3, 2]
+```
+
+```{r}
+discriminant <- b^2 - 4*a*c
+
+if (discriminant >= 0) {
+  solution1 <- (-b + sqrt(discriminant)) / (2*a)
+  solution2 <- (-b - sqrt(discriminant)) / (2*a)
+  cat("Real solutions are:", solution1, "and", solution2, "\n")
+} else {
+  cat("No real solutions.\n")
+}
+```
